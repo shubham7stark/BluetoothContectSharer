@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical" >
+
+
+<RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="60dp">
+
+   <Button
+        android:id="@+id/bt_add_self"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Add your Contect" />
+    <Button
+        android:id="@+id/bt_gen_list"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:text="Sync New Contects" 
+        android:layout_toRightOf="@+id/bt_add_self"
+        />
+
+</RelativeLayout>
+       <fragment
+            class="com.example.bluetoothcontectsharer.BluetoothDeviceListFragment"
+            android:id ="@+id/bluetooth_device_list"
+            android:layout_width ="match_parent"
+            android:layout_height="match_parent">
+            <!-- Preview: layout=@layout/bluetoothListFragment -->
+        </fragment>
+    
+</LinearLayout>
+
