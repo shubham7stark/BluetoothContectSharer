@@ -80,6 +80,7 @@ public class AddSelfContect extends Activity implements OnClickListener{
 
      Intent i = new Intent(getApplicationContext() , MainActivity.class);
 	 startActivity(i);
+	
 	}
 	
 }

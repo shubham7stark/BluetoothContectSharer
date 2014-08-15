@@ -1,19 +1,19 @@
 package com.example.bluetoothcontectsharer;
 
-import android.app.Activity;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
 import android.bluetooth.BluetoothAdapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 import android.widget.ListView;
 
-public class MainActivity extends Activity implements OnClickListener {
+public class MainActivity extends FragmentActivity implements OnClickListener {
 
 	Button add_self;
 	Button get_contectList;
@@ -35,7 +35,8 @@ public class MainActivity extends Activity implements OnClickListener {
 	
 	add_self.setOnClickListener(this);
 	get_contectList.setOnClickListener(this);
-
+    
+	addHomeFragment();
 	}
 	
 	
@@ -43,14 +44,15 @@ public class MainActivity extends Activity implements OnClickListener {
 		bdListFragment = new BluetoothDeviceListFragment();
 
 		// Getting reference to the FragmentManager
-		fragmentManager = getFragmentManager();
+		fragmentManager = getSupportFragmentManager();
 
 		// Creating a fragment transaction
 		ft = fragmentManager.beginTransaction();
 
 		// Adding a fragment to the fragment transaction
-		ft.add(R.id.bluetooth_device_list, bdListFragment);
+		ft.replace(R.id.bluetooth_device_list, bdListFragment);
 		// Committing the transaction
+		ft.addToBackStack(null);
 		ft.commit();
 	}
 
@@ -58,14 +60,15 @@ public class MainActivity extends Activity implements OnClickListener {
 		homeFragment = new HomeFragment();
 
 		// Getting reference to the FragmentManager
-		fragmentManager = getFragmentManager();
+		fragmentManager = getSupportFragmentManager();
 
 		// Creating a fragment transaction
 		ft = fragmentManager.beginTransaction();
 
 		// Adding a fragment to the fragment transaction
-		ft.add(R.id.bluetooth_device_list, bdListFragment);
+		ft.replace(R.id.bluetooth_device_list, bdListFragment);
 		// Committing the transaction
+		ft.addToBackStack(null);	
 		ft.commit();
 	}
 
@@ -79,6 +82,7 @@ public class MainActivity extends Activity implements OnClickListener {
 		 BluetoothAdapter blueAdapter = null;
 		 blueAdapter = BluetoothAdapter.getDefaultAdapter();
 		 blueAdapter.setName(new_name);  
+	
 	}
 
 

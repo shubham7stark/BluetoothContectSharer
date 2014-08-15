@@ -23,7 +23,7 @@
         />
 
 </RelativeLayout>
-       <fragment
+   <fragment
             class="com.example.bluetoothcontectsharer.BluetoothDeviceListFragment"
             android:id ="@+id/bluetooth_device_list"
             android:layout_width ="match_parent"
